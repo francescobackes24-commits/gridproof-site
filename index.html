@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="nl"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GridProof — doorrekenen of een thuisbatterij loont</title>
+<meta name="description" content="GridProof rekent per huishouden door of een thuisbatterij loont — op hun eigen jaarafrekening, dak en energiecontract. Als klantrapport onder de naam van de installateur. Voor installateurs in Noord-Brabant en Zeeland.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%231B7A5A'/><text x='50' y='72' font-size='62' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>G</text></svg>">
+<style>
+  :root { --accent: #1B7A5A; --accent-d: #146046; --inkt: #14162A; --grijs: #5a5f6e; --lijn: #d9dce3; --vlak: #f2f5f4; }
+  * { box-sizing: border-box; margin: 0; }
+  body { font-family: Calibri, "Segoe UI", Arial, sans-serif; color: var(--inkt); background: #fff;
+         font-size: 17px; line-height: 1.55; }
+  .band { padding: 34px 20px; }
+  .binnen { max-width: 860px; margin: 0 auto; }
+  header.band { background: var(--inkt); color: #fff; padding: 44px 20px 40px; }
+  .logo { font-size: 30px; font-weight: bold; letter-spacing: 0.5px; }
+  .logo span { color: #6fd3ae; }
+  h1 { font-size: clamp(26px, 4.5vw, 38px); line-height: 1.18; margin: 14px 0 10px; }
+  .sub { color: #c9cdd8; font-size: 18px; max-width: 640px; }
+  .chip { display: inline-block; background: rgba(111,211,174,.15); color: #6fd3ae; border: 1px solid rgba(111,211,174,.4);
+          border-radius: 100px; padding: 3px 14px; font-size: 14px; margin-bottom: 6px; }
+  h2 { font-size: 24px; color: var(--accent); margin-bottom: 12px; }
+  p { margin-bottom: 12px; }
+  .knop { display: inline-block; background: var(--accent); color: #fff; text-decoration: none; font-weight: bold;
+          padding: 13px 26px; border-radius: 6px; margin: 8px 10px 4px 0; }
+  .knop:hover { background: var(--accent-d); }
+  .knop.licht { background: #fff; color: var(--accent); border: 2px solid var(--accent); }
+  .cijfers { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin: 18px 0 6px; }
+  .cijfers > div { background: var(--vlak); border-radius: 8px; padding: 16px 18px; }
+  .cijfer { font-size: 30px; font-weight: bold; color: var(--accent); display: block; line-height: 1.1; }
+  .cijfers small { color: var(--grijs); font-size: 14px; line-height: 1.35; display: block; margin-top: 6px; }
+  .grijsband { background: var(--vlak); }
+  .stappen { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin-top: 14px; }
+  .stap { background: #fff; border: 1px solid var(--lijn); border-radius: 8px; padding: 18px; }
+  .stapnr { display: inline-block; width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: #fff;
+            text-align: center; line-height: 30px; font-weight: bold; margin-bottom: 10px; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0 6px; }
+  th { text-align: left; border-bottom: 2px solid var(--inkt); padding: 8px 10px; }
+  td { border-bottom: 1px solid var(--lijn); padding: 8px 10px; vertical-align: top; }
+  .kader { background: #faf3e8; border-left: 5px solid #b3701f; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 14px 0; }
+  .grens { border: 2px solid var(--inkt); border-radius: 8px; padding: 16px 20px; margin: 14px 0; }
+  .bron { color: var(--grijs); font-size: 14px; }
+  ul { margin: 0 0 12px 22px; }
+  li { margin-bottom: 6px; }
+  footer { background: var(--inkt); color: #c9cdd8; font-size: 14px; }
+  footer a { color: #6fd3ae; }
+  a { color: var(--accent); }
+  @media (max-width: 540px) { .band { padding: 26px 16px; } }
+</style></head><body>
+
+<header class="band">
+  <div class="binnen">
+    <div class="logo">Grid<span>Proof</span></div>
+    <div class="chip">Voor zonne- en batterij-installateurs in Noord-Brabant &amp; Zeeland</div>
+    <h1>Doorrekenen of een thuisbatterij loont — per klant, onder uw naam</h1>
+    <p class="sub">Op hun eigen jaarafrekening, hun eigen dak en hun eigen energiecontract. Als rapport
+    van drie pagina's met uw logo erop, bij uw offerte. Ook als het antwoord "niet doen" is —
+    juist als het antwoord "niet doen" is.</p>
+    <p style="margin-top:18px">
+      <a class="knop" href="voorbeeldrapport.html">Bekijk een voorbeeldrapport</a>
+      <a class="knop licht" href="#contact">Neem contact op</a>
+    </p>
+  </div>
+</header>
+
+<section class="band">
+  <div class="binnen">
+    <h2>Het probleem dat u erft</h2>
+    <div class="cijfers">
+      <div><span class="cijfer">2–4 jaar</span><small>terugverdientijd die leveranciers noemen in hun verkoop</small></div>
+      <div><span class="cijfer">6,5–22 jaar</span><small>berekend voor 13 huishoudens op hun eigen meetgegevens</small></div>
+      <div><span class="cijfer">+100%</span><small>groei thuisbatterijen in H1 2026 — 30.856 nieuwe registraties</small></div>
+    </div>
+    <p>Sinds eind 2024 waarschuwen de ACM, de Consumentenbond, <i>Radar</i> en Vereniging Eigen Huis elk
+    afzonderlijk voor agressieve batterijverkoop met te rooskleurige rekensommen. Die rekening komt niet
+    bij de verkopers terecht, maar bij de vakman die daarná het verkoopgesprek voert: langere gesprekken,
+    meer twijfel — en bij de eerste jaarafrekeningen zónder saldering klanten die terugbellen met
+    "dit levert niet op wat is voorgerekend".</p>
+    <p>Wie dan kan laten zien dat hij vooraf eerlijk gerekend heeft, krijgt die telefoontjes niet.</p>
+    <p class="bron">Bronnen: ACM-waarschuwing (16 dec 2024) · Consumentengids (mei 2025) · data-analyse
+    1.300 huishoudens via TW.nl (16 jun 2026) · VEH-praktijktest, doorgerekend door CE Delft, via
+    <i>Radar</i> (6 feb 2026) · goedkoopenergievergelijken.nl (6 jul 2026).</p>
+  </div>
+</section>
+
+<section class="band grijsband">
+  <div class="binnen">
+    <h2>Hoe het werkt</h2>
+    <div class="stappen">
+      <div class="stap"><span class="stapnr">1</span>
+        <b>U stuurt vijf minuten werk op.</b><br>De jaarnota als pdf — naam en adres mag u doorstrepen —
+        plus het aantal panelen en de dakrichting en -helling bij benadering. Weet u de helling niet,
+        dan schat ik hem.</div>
+      <div class="stap"><span class="stapnr">2</span>
+        <b>Ik reken het huishouden door.</b><br>Verbruikspatroon, opwek van dít dak, het eigen contract
+        inclusief terugleverkosten, en drie batterijmaten plus de variant zonder batterij. Binnen vijf
+        werkdagen ligt er een rapport — eerst bij ú, ter controle, met een aannameblad erbij.</div>
+      <div class="stap"><span class="stapnr">3</span>
+        <b>U stuurt het mee met uw offerte.</b><br>Uw logo, uw naam, uw contactgegevens. Eén helder
+        advies, inclusief "geen batterij" als dat de uitkomst is. Onderaan één regel dat GridProof de
+        berekening uitvoerde.</div>
+    </div>
+    <p style="margin-top:16px"><a class="knop" href="voorbeeldrapport.html">Zo ziet dat rapport eruit →</a></p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="binnen">
+    <h2>Wat het kost</h2>
+    <table>
+      <tr><th>Vorm</th><th>Prijs</th><th></th></tr>
+      <tr><td><b>De eerste drie</b></td><td><b>gratis</b></td>
+        <td>Voor de eerste vijf installateurs met wie ik werk — meer kan ik naast mijn opleiding niet
+        aan. Geen verplichting, geen abonnement.</td></tr>
+      <tr><td>Per doorrekening</td><td>€ 65</td>
+        <td>Doorbelasten aan uw klant of verrekenen in de systeemprijs mag; ik factureer aan u.</td></tr>
+      <tr><td>Abonnement</td><td>€ 249 / maand</td>
+        <td>Tien doorrekeningen per maand (€ 24,90 per stuk), levering binnen één werkdag.</td></tr>
+    </table>
+    <p class="bron">Ter vergelijking: een gedeelde lead kost € 10–16 (Prijsinzicht.nl, 2026) en komt aan
+    het begin van de trechter. Een doorrekening kost meer, maar komt aan het eind — waar de klant tekent
+    of afhaakt.</p>
+  </div>
+</section>
+
+<section class="band grijsband">
+  <div class="binnen">
+    <h2>Waarom u dit kunt controleren</h2>
+    <p>De rekenkern draait op de officiële standaardverbruiksprofielen (MFFBAS), opwekdata van PVGIS
+    (JRC, Europese Commissie) en de actuele Nederlandse tariefregels, inclusief de terugleverkosten van
+    de leverancier van díe klant. Ik toets het model aan échte jaarafrekeningen: afname, teruglevering
+    én bedrag moeten alle drie binnen 10% van de werkelijke nota vallen.</p>
+    <div class="kader">
+      <b>De actuele toetsstand staat in elk rapport</b> — ook waar het model die grens nog niet haalt.
+      Zonder meterdata zit er 10 à 15% onzekerheid op de verdeling tussen afname en teruglevering;
+      daarom staan de kernbedragen in het rapport als bandbreedte, niet als schijnexact getal. Precies
+      dáárin verschilt dit van de rekensommen waar de ACM voor waarschuwt.
+    </div>
+    <div class="grens">
+      <b>Waar ik van afblijf.</b> GridProof levert uitsluitend de rekenkundige onderbouwing — géén
+      installatie-, veiligheids- of elektrotechnisch advies. Ik reken door welke capaciteit economisch
+      het gunstigst is; of die maat technisch kan — aansluitwaarde, groepenkast, opstelplaats,
+      brandveiligheid — beoordeelt u, en uw oordeel gaat vóór op mijn som. Montage, aansluiting en
+      keuring blijven bij u als erkende installateur.
+    </div>
+    <p><b>Gegevens van uw klant.</b> Ik heb alleen verbruik, teruglevering, tarieven en de vier cijfers
+    van de postcode nodig — naam en adres mag u doorstrepen. Ik bewaar niets langer dan nodig voor het
+    rapport en deel niets met derden. Verwerkersovereenkomst op verzoek.</p>
+  </div>
+</section>
+
+<section class="band" id="contact">
+  <div class="binnen">
+    <h2>Wie ik ben</h2>
+    <p>Francesco Backes — student Technische Bedrijfskunde aan Avans Hogeschool. GridProof komt voort
+    uit mijn onderzoek naar residentiële zonne-energie en opslag, dat doorloopt tijdens de minor
+    Ondernemerschap (september 2026 – januari 2027), en uit de eigen PV-installatie die als
+    testopstelling dient. Een paar jaar geleden bouwde ik met mijn vader een tuinhuis met zestien
+    zonnepanelen — en zag daarna van dichtbij hoe de regels onder die investering vandaan schoven.
+    Niemand rekende óns huis door. Daar komt GridProof vandaan.</p>
+    <p style="margin-top:18px">
+      <a class="knop" href="mailto:francesco@gridproof.nl?subject=Doorrekening%20thuisbatterij">Mail francesco@gridproof.nl</a>
+    </p>
+    <p class="bron">Reactie meestal binnen één werkdag.</p>
+  </div>
+</section>
+
+<footer class="band">
+  <div class="binnen">
+    <p><b style="color:#fff">GridProof</b> · Noord-Brabant &amp; Zeeland ·
+    <a href="mailto:francesco@gridproof.nl">francesco@gridproof.nl</a></p>
+    <p>Elk cijfer op deze pagina heeft een bron en een peildatum (augustus 2026). De rekenmethode en
+    aannames zijn op aanvraag beschikbaar; gegevens van huishoudens deel ik niet. Deze site gebruikt
+    geen cookies en geen trackers.</p>
+  </div>
+</footer>
+
+</body></html>
